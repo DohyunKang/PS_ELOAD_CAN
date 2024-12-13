@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BABE2C34-A4E3-4821-9F60-A2473A63B0C5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PS_ELOAD_Serial</RootNamespace>
+    <AssemblyName>PS_ELOAD_Serial</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>게시\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NationalInstruments.Analysis.Enterprise, Version=13.0.45.242, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.Common, Version=13.5.40.173, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.DAQmx, Version=14.2.45.30, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NationalInstruments.NetworkVariable, Version=13.0.45.242, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.NI4882, Version=13.0.45.159, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.Tdms, Version=13.0.45.242, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.UI, Version=13.0.45.242, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.UI.WindowsForms, Version=13.0.45.242, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form\Main\Main.Current.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main\Main.DMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main\Main.SequenceExecutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence\Loop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence\Loop.Designer.cs">
+      <DependentUpon>Loop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Mode\CCMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Mode\CCMode.Designer.cs">
+      <DependentUpon>CCMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Mode\CRMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Mode\CRMode.Designer.cs">
+      <DependentUpon>CRMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Mode\CVMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Mode\CVMode.Designer.cs">
+      <DependentUpon>CVMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Form\Main\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sequence\Option_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence\Option_list.Designer.cs">
+      <DependentUpon>Option_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main\Main.Log_AI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence2\Loop2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence2\Loop2.Designer.cs">
+      <DependentUpon>Loop2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sequence2\Option_list2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence2\Option_list2.Designer.cs">
+      <DependentUpon>Option_list2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sequence2\ProgramForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence2\ProgramForm2.Designer.cs">
+      <DependentUpon>ProgramForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sequence2\Sequence2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence2\Sequence2.Designer.cs">
+      <DependentUpon>Sequence2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sequence2\SettingsForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence2\SettingsForm2.Designer.cs">
+      <DependentUpon>SettingsForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCANBasic.cs" />
+    <Compile Include="Ps_Eload_Current.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ps_Eload_Current.Designer.cs">
+      <DependentUpon>Ps_Eload_Current.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sequence\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Form\Sequence\ProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence\ProgramForm.Designer.cs">
+      <DependentUpon>ProgramForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Form\Sequence\Sequence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sequence\Sequence.Designer.cs">
+      <DependentUpon>Sequence.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\Sequence\Loop.resx">
+      <DependentUpon>Loop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Mode\CCMode.resx">
+      <DependentUpon>CCMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Mode\CRMode.resx">
+      <DependentUpon>CRMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Mode\CVMode.resx">
+      <DependentUpon>CVMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence\Option_list.resx">
+      <DependentUpon>Option_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence\ProgramForm.resx">
+      <DependentUpon>ProgramForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence2\Loop2.resx">
+      <DependentUpon>Loop2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence2\Option_list2.resx">
+      <DependentUpon>Option_list2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence2\ProgramForm2.resx">
+      <DependentUpon>ProgramForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence2\Sequence2.resx">
+      <DependentUpon>Sequence2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence2\SettingsForm2.resx">
+      <DependentUpon>SettingsForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ps_Eload_Current.resx">
+      <DependentUpon>Ps_Eload_Current.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence\Sequence.resx">
+      <DependentUpon>Sequence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sequence\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

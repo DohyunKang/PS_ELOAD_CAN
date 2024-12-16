@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 using Peak.Can.Basic;
 using TPCANHandle = System.UInt16;
@@ -96,9 +97,13 @@ namespace PS_ELOAD_Serial
 
         private void UpdateCANData(TPCANMsg message, int period)
         {
+            string currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string dataString = BitConverter.ToString(message.DATA, 0, message.LEN);
-            string displayText = "ID: " + message.ID.ToString("X") + ", Len: " + message.LEN +
+            string displayText = currentTime + " ID: " + message.ID.ToString("X") + ", Len: " + message.LEN +
                                  ", Data: " + dataString + ", Period: " + period + " ms";
+
+            // 로그를 텍스트 파일에 저장
+            SaveLogToFile(displayText);
 
             if (CanList.InvokeRequired) // UI 스레드가 아닌 경우
             {
@@ -124,6 +129,32 @@ namespace PS_ELOAD_Serial
 
                 // 스크롤을 마지막 항목으로 이동
                 CanList.TopIndex = CanList.Items.Count - 1;
+            }
+        }
+
+        // 로그를 텍스트 파일에 저장하는 메서드
+        private void SaveLogToFile(string log)
+        {
+            try
+            {
+                // 지정된 로그 파일 경로
+                string folderPath = @"C:\Users\kangdohyun\Desktop\세미나\강도현\7주차\CAN Log";
+                string logFilePath = Path.Combine(folderPath, "CANLog.txt");
+
+                // 폴더가 존재하지 않으면 생성
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                // 로그 내용을 파일에 추가
+                File.AppendAllText(logFilePath, log + Environment.NewLine);
+
+                Console.WriteLine("로그 저장 성공: " + logFilePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("로그 저장 중 오류 발생: " + ex.Message);
             }
         }
 

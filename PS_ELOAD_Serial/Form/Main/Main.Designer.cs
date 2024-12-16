@@ -730,12 +730,12 @@
             // 
             // Log_List
             // 
-            this.Log_List.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Log_List.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Log_List.FormattingEnabled = true;
-            this.Log_List.ItemHeight = 19;
+            this.Log_List.ItemHeight = 15;
             this.Log_List.Location = new System.Drawing.Point(1170, 68);
             this.Log_List.Name = "Log_List";
-            this.Log_List.Size = new System.Drawing.Size(707, 308);
+            this.Log_List.Size = new System.Drawing.Size(707, 304);
             this.Log_List.TabIndex = 43;
             // 
             // legend1
@@ -769,7 +769,7 @@
             this.legendItem5});
             this.legend2.Location = new System.Drawing.Point(949, 779);
             this.legend2.Name = "legend2";
-            this.legend2.Size = new System.Drawing.Size(176, 93);
+            this.legend2.Size = new System.Drawing.Size(215, 93);
             this.legend2.TabIndex = 45;
             // 
             // legendItem1
@@ -841,7 +841,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(1166, 552);
+            this.label20.Location = new System.Drawing.Point(1164, 552);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(135, 32);
             this.label20.TabIndex = 53;
@@ -849,12 +849,12 @@
             // 
             // CanList
             // 
-            this.CanList.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CanList.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CanList.FormattingEnabled = true;
-            this.CanList.ItemHeight = 19;
-            this.CanList.Location = new System.Drawing.Point(1172, 591);
+            this.CanList.ItemHeight = 15;
+            this.CanList.Location = new System.Drawing.Point(1170, 591);
             this.CanList.Name = "CanList";
-            this.CanList.Size = new System.Drawing.Size(705, 308);
+            this.CanList.Size = new System.Drawing.Size(707, 304);
             this.CanList.TabIndex = 52;
             // 
             // groupBox2

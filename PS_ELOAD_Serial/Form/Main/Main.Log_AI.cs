@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +59,7 @@ namespace PS_ELOAD_Serial
         {
             // 현재 시간을 "yyyy-MM-dd HH:mm:ss" 형식으로 가져오기
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-    
+
             // 로그 메시지 생성
             string logMessage = string.Format("{0} | [{1}] {2}", timestamp, direction, command);
 
@@ -68,7 +68,7 @@ namespace PS_ELOAD_Serial
 
             // 로그 메시지를 Log_List에 추가 
             Log_List.Items.Add(logMessage);
-    
+
             // 가장 최근 로그가 보이도록 스크롤 이동   
             Log_List.TopIndex = Log_List.Items.Count - 1;
         }

@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.IO.Ports;
 using System.IO;
 using System.Net.Sockets;
@@ -10,6 +10,7 @@ using NationalInstruments.UI.WindowsForms;
 using Action = System.Action; // System.Action으로 명시
 using System.Data.SqlServerCe;
 using System.Collections.Generic;
+using System.Threading;
 
 using Peak.Can.Basic;
 using TPCANHandle = System.UInt16;
@@ -957,7 +958,10 @@ namespace PS_ELOAD_Serial
                     if (isCurrentOn) // 현재 버튼이 눌린 상태
                     {
                         psDataTimer.Stop(); // 타이머 중지
-                        canReadTimer.Stop();
+                        //canReadTimer.Stop();
+                        canReadTimer.Change(Timeout.Infinite, Timeout.Infinite);
+                        saveDataTimer.Stop();
+                        displayUpdateTimer.Stop();
 
                         PCANBasic.Uninitialize(canHandle); // CAN 종료
 
@@ -969,7 +973,10 @@ namespace PS_ELOAD_Serial
                         psDataTimer.Start(); // 타이머 시작
 
                         InitializeCAN();
-                        canReadTimer.Start(); 
+                        //canReadTimer.Start();
+                        canReadTimer.Change(0, 5);
+                        saveDataTimer.Start();
+                        displayUpdateTimer.Start();
 
                         CurrentButton.Text = "Off";
                     }

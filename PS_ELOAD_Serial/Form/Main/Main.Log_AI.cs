@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NationalInstruments.DAQmx;  // DAQmx API 사용을 위한 참조
 using NationalInstruments.UI;    // 그래프 컨트롤을 사용하기 위한 참조
 using System.Diagnostics;
+using System.IO;
 
 namespace PS_ELOAD_Serial
 {
@@ -60,13 +61,42 @@ namespace PS_ELOAD_Serial
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     
             // 로그 메시지 생성
-            string logMessage = string.Format("{0} [{1}] {2}", timestamp, direction, command);
-  
+            string logMessage = string.Format("{0} | [{1}] {2}", timestamp, direction, command);
+
+            // 로그를 텍스트 파일에 저장
+            SaveLogToFile2(logMessage);
+
             // 로그 메시지를 Log_List에 추가 
             Log_List.Items.Add(logMessage);
     
             // 가장 최근 로그가 보이도록 스크롤 이동   
             Log_List.TopIndex = Log_List.Items.Count - 1;
+        }
+
+        // 로그를 텍스트 파일에 저장하는 메서드
+        private void SaveLogToFile2(string log)
+        {
+            try
+            {
+                // 지정된 로그 파일 경로
+                string folderPath = @"C:\Users\kangdohyun\Desktop\세미나\강도현\7주차\SCPI Log";
+                string logFilePath = Path.Combine(folderPath, "SCPILog.txt");
+
+                // 폴더가 존재하지 않으면 생성
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                // 로그 내용을 파일에 추가
+                File.AppendAllText(logFilePath, log + Environment.NewLine);
+
+                Console.WriteLine("로그 저장 성공: " + logFilePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("로그 저장 중 오류 발생: " + ex.Message);
+            }
         }
 
         private void InitializeDAQ()
